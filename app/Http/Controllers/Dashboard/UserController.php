@@ -60,7 +60,7 @@ class UserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'image' => ['file'],
             'password' => ['required', 'confirmed'],
-            'permissions' => ['required', 'array']
+            'permissions' => ['array']
         ]);
         $requestData = Arr::except($validated, ['_token', '_method', 'image', 'password', 'permissions']);
 
@@ -88,6 +88,8 @@ class UserController extends Controller
 
         // Add permissions to user was created
         $user->syncPermissions($request->permissions);
+
+        session()->flash('success', __('site.added_successfully'));
 
         return redirect(route('dashboard.users.index'));
     }
@@ -140,15 +142,16 @@ class UserController extends Controller
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($id)],
             'image' => ['file'],
-            'permissions' => ['required', 'array']
+            'permissions' => ['array']
         ]);
 
         $requestData = $request->except(['_token', '_method', 'image', 'password', 'permissions']);
 
         if($request->image) {
-            // delete old image
-            Storage::disk('public_uploads')->delete('user-images/' . $user->image);
-
+           if($request->image !== 'default.png') {
+                // delete old image
+                Storage::disk('public_uploads')->delete('user-images/' . $user->image);
+           }
             // store new image
             $hashImageName = $request->image->hashName();
 
@@ -164,6 +167,8 @@ class UserController extends Controller
 
         $user->update($requestData);
 
+        session()->flash('success', __('site.updated_successfully'));
+
         return redirect(route('dashboard.users.index'));
     }
 
@@ -178,10 +183,15 @@ class UserController extends Controller
         //
         $user = User::find($id);
 
-        // Delete image from storage
-        Storage::disk('public_uploads')->delete('user-images/' . $user->image);
+        if($user->image !== 'default.png') {
+            // delete old image
+            Storage::disk('public_uploads')->delete('user-images/' . $user->image);
+       }
 
+        // Delete image from storage
         $user->delete();
+
+        session()->flash('success', __('site.deleted_successfully'));
 
         return redirect(route('dashboard.users.index'));
     }
