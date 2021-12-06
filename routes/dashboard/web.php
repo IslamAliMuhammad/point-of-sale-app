@@ -9,8 +9,14 @@ Route::group(
         'prefix' => LaravelLocalization::setLocale(),
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){ //...
+
         Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function () {
-            Route::get('/', [DashboardController::class, 'welcome'])->name('welcome');
+
+            Route::get('/', [DashboardController::class, 'home'])->name('home');
+
+            Route::resource('users', UserController::class);
+
         });
+
     });
 
