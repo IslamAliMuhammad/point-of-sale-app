@@ -33,4 +33,5 @@ return [
     'updated_successfully' => 'تم تعديل البيانات بنجاح',
     'deleted_successfully' => 'تم حذف البيانات بنجاح',
 
+    'search' => 'بحث',
 ];

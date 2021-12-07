@@ -13,16 +13,25 @@
                 <div class="card-header">
                     <h3 class="card-title">{{ __('site.users') }}</h3>
 
-                    <div class="card-tools">
-                        <div class="input-group input-group-sm" style="width: 250px;">
-                            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                    {{-- search --}}
+                    <form action="{{ route('dashboard.users.index') }}" method="GET" class="d-inline-block">
 
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                        @csrf
+
+                        <div class="card-tools">
+                            <div class="input-group input-group-sm" style="width: 250px;">
+                                <input type="text" name="search" class="form-control float-right" placeholder="{{ __('site.search') }}">
+
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                </div>
                             </div>
-                        </div>
 
-                    </div>
+                        </div>
+                    </form>
+                    {{-- end search --}}
+
+
                     <a class="btn btn-secondary btn-sm mr-2 @cannot('create') disabled @endcannot"
                         href="{{ route('dashboard.users.create') }}"><i class="fa fa-plus-circle"></i>
                         {{ __('site.add') }}</a>
@@ -73,10 +82,20 @@
                         </tbody>
                     </table>
                 </div>
+
+                <div class="card-footer">
+                    <div>
+                        {{ $users->appends(['search' => $search])->links() }}
+                    </div>
+                </div>
+
                 <!-- /.card-body -->
             </div>
+
             <!-- /.card -->
         </div>
+
+
     </div>
     <!-- /.row -->
 @endsection

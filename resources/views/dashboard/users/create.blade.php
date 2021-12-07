@@ -16,35 +16,35 @@
             <div class="card-body">
                 <div class="form-group">
                     <label for="inputFirstName">{{ __('site.first_name') }}</label>
-                    <input type="text" class="form-control" id="inputFirstName" name="first_name" value="{{ old('first_name') }}">
+                    <input type="text" class="form-control" id="inputFirstName" name="first_name" value="{{ old('first_name') }}" required>
                     @error('first_name')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="inputLastName">{{ __('site.last_name') }}</label>
-                    <input type="text" class="form-control" id="inputLastName" name="last_name" value="{{ old('last_name') }}">
+                    <input type="text" class="form-control" id="inputLastName" name="last_name" value="{{ old('last_name') }}" required>
                     @error('last_name')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="inputEmail">{{ __('site.email') }}</label>
-                    <input type="email" class="form-control" id="inputEmail" name="email" value="{{ old('email') }}">
+                    <input type="email" class="form-control" id="inputEmail" name="email" value="{{ old('email') }}" required>
                     @error('email')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="inputPassword">{{ __('site.password') }}</label>
-                    <input type="password" class="form-control" id="inputPassword" name="password">
+                    <input type="password" class="form-control" id="inputPassword" name="password" required>
                     @error('password')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="inputPasswordConfirmation">{{ __('site.password_confirmation') }}</label>
-                    <input type="password" class="form-control" id="inputPasswordConfirmation" name="password_confirmation">
+                    <input type="password" class="form-control" id="inputPasswordConfirmation" name="password_confirmation" required>
                     @error('password_confirmation')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror

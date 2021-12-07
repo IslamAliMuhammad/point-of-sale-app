@@ -16,21 +16,21 @@
             <div class="card-body">
                 <div class="form-group">
                     <label for="inputFirstName">{{ __('site.first_name') }}</label>
-                    <input type="text" class="form-control" id="inputFirstName" name="first_name" value="{{ $user->first_name }}">
+                    <input type="text" class="form-control" id="inputFirstName" name="first_name" value="{{ $user->first_name }}" required>
                     @error('first_name')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="inputLastName">{{ __('site.last_name') }}</label>
-                    <input type="text" class="form-control" id="inputLastName" name="last_name" value="{{ $user->last_name }}">
+                    <input type="text" class="form-control" id="inputLastName" name="last_name" value="{{ $user->last_name }}" required>
                     @error('last_name')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="inputEmail">{{ __('site.email') }}</label>
-                    <input type="email" class="form-control" id="inputEmail" name="email" value="{{ $user->email }}">
+                    <input type="email" class="form-control" id="inputEmail" name="email" value="{{ $user->email }}" required>
                     @error('email')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror

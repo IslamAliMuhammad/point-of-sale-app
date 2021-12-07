@@ -18,15 +18,26 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
         if(auth()->user()->cannot('read')) {
             return abort(403);
         }
 
-        $users = User::all();
-        return view('dashboard.users.index', [ 'users' => $users ]);
+        $users = User::where([
+            [function ($query) use ($request) {
+                if($term = $request->search){
+                    $query->where('first_name' , 'LIKE', '%' . $term . '%')
+                        ->orWhere('last_name' , 'LIKE', '%' . $term . '%')
+                        ->orWhereRaw("concat(first_name, ' ', last_name) like '%{$term}%' ");
+                }
+            }]
+        ])
+            ->orderBy('id', 'desc')
+            ->paginate(10);
+
+        return view('dashboard.users.index', [ 'users' => $users, 'search' => $request->query('search')]);
     }
 
     /**
