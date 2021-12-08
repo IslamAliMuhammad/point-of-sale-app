@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use Astrotomic\Translatable\Validation\RuleFactory;
 
@@ -97,7 +98,7 @@ class CategoryController extends Controller
     {
         //
         $rules = RuleFactory::make([
-            '%name%' => ['required', 'string', 'max:255', 'unique:category_translations,name'],
+            '%name%' => ['required', 'string', 'max:255', Rule::unique('category_translations', 'name')->ignore($category->id, 'category_id')],
         ]);
 
         $request->validate($rules);

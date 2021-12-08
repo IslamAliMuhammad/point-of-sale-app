@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'first_name' => 'super',
             'last_name' => 'admin',
             'email' => 'super.admin@admin.com',
-            'image' => 'default.png',
+            'image' => 'default.jpg',
             'password' => Hash::make('01143101020'),
         ]);
 

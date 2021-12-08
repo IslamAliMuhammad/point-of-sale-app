@@ -28,7 +28,7 @@
                     {{-- end search --}}
 
 
-                    <a class="btn btn-secondary btn-sm mr-2 @cannot('create') disabled @endcannot"
+                    <a class="btn btn-secondary btn-sm mr-2"
                         href="{{ route('dashboard.categories.create') }}"><i class="fa fa-plus-circle"></i>
                         {{ __('site.add') }}</a>
 
@@ -50,7 +50,7 @@
 
                                     <td>{{ $category->name }}</td>
                                     <td>
-                                        <a class="btn btn-info btn-sm  @cannot('update') disabled @endcannot"
+                                        <a class="btn btn-info btn-sm "
                                             href="{{ route('dashboard.categories.edit', $category->id) }}"><i
                                                 class="fa fa-edit"></i> {{ __('site.edit') }}</a>
 
@@ -58,8 +58,7 @@
                                             class="d-inline-block deleteUser delete">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="btn btn-danger btn-sm" type="submit" @cannot('delete') disabled
-                                                @endcannot><i class="fa fa-trash" data-toggle="modal"
+                                            <button class="btn btn-danger btn-sm" type="submit"><i class="fa fa-trash" data-toggle="modal"
                                                     data-target="#exampleModal"></i>
                                                 {{ __('site.delete') }}</button>
 

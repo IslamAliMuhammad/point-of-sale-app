@@ -65,22 +65,22 @@
 
                     <div class="form-group d-flex flex-row">
                         <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox" id="createCheckbox" value="create"
+                            <input class="custom-control-input" type="checkbox" id="createCheckbox" value="create users"
                                 name="permissions[]">
                             <label for="createCheckbox" class="custom-control-label">{{ __('site.create') }}</label>
                         </div>
                         <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox" id="readCheckbox" value="read"
+                            <input class="custom-control-input" type="checkbox" id="readCheckbox" value="read users"
                                 name="permissions[]">
                             <label for="readCheckbox" class="custom-control-label">{{ __('site.read') }}</label>
                         </div>
                         <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox" id="updateCheckbox" value="update"
+                            <input class="custom-control-input" type="checkbox" id="updateCheckbox" value="edit users"
                                 name="permissions[]">
                             <label for="updateCheckbox" class="custom-control-label">{{ __('site.update') }}</label>
                         </div>
                         <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox" id="deleteCheckbox" value="delete"
+                            <input class="custom-control-input" type="checkbox" id="deleteCheckbox" value="delete users"
                                 name="permissions[]">
                             <label for="deleteCheckbox" class="custom-control-label">{{ __('site.delete') }}</label>
                         </div>

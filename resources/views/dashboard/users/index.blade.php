@@ -30,7 +30,7 @@
                     {{-- end search --}}
 
 
-                    <a class="btn btn-secondary btn-sm mr-2 @cannot('create') disabled @endcannot"
+                    <a class="btn btn-secondary btn-sm mr-2 @cannot('create users') disabled @endcannot"
                         href="{{ route('dashboard.users.create') }}"><i class="fa fa-plus-circle"></i>
                         {{ __('site.add') }}</a>
 
@@ -58,7 +58,7 @@
                                     <td><img src="{{ asset('uploads/user-images/' . $user->image) }}" alt="user"
                                             class="img-thumbnail" style="width: 50px;"></td>
                                     <td>
-                                        <a class="btn btn-info btn-sm  @cannot('update') disabled @endcannot"
+                                        <a class="btn btn-info btn-sm  @cannot('edit users') disabled @endcannot"
                                             href="{{ route('dashboard.users.edit', $user->id) }}"><i
                                                 class="fa fa-edit"></i> {{ __('site.edit') }}</a>
 
@@ -66,7 +66,7 @@
                                             class="d-inline-block deleteUser delete">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="btn btn-danger btn-sm" type="submit" @cannot('delete') disabled
+                                            <button class="btn btn-danger btn-sm" type="submit" @cannot('delete users') disabled
                                                 @endcannot><i class="fa fa-trash" data-toggle="modal"
                                                     data-target="#exampleModal"></i>
                                                 {{ __('site.delete') }}</button>

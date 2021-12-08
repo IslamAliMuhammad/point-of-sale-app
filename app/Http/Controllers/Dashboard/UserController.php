@@ -21,7 +21,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         //
-        if(auth()->user()->cannot('read')) {
+        if(auth()->user()->cannot('read users')) {
             return abort(403);
         }
 
@@ -48,7 +48,7 @@ class UserController extends Controller
     public function create()
     {
         //
-        if(auth()->user()->cannot('create')) {
+        if(auth()->user()->cannot('create users')) {
             abort(403);
         }
 
@@ -87,7 +87,7 @@ class UserController extends Controller
             $requestData['image'] = $hashImageName;
         }else {
 
-            $requestData['image'] = 'default.png';
+            $requestData['image'] = 'default.jpg';
         }
 
 
@@ -125,7 +125,7 @@ class UserController extends Controller
     public function edit($id)
     {
         //
-        if(auth()->user()->cannot('update')) {
+        if(auth()->user()->cannot('edit users')) {
             abort(403);
         }
 
@@ -159,7 +159,7 @@ class UserController extends Controller
         $requestData = $request->except(['_token', '_method', 'image', 'password', 'permissions']);
 
         if($request->image) {
-           if($request->image !== 'default.png') {
+           if($user->image !== 'default.jpg') {
                 // delete old image
                 Storage::disk('public_uploads')->delete('user-images/' . $user->image);
            }
@@ -192,9 +192,13 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+        if(auth()->user()->cannot('delete users')) {
+            return abort(403);
+        }
+
         $user = User::find($id);
 
-        if($user->image !== 'default.png') {
+        if($user->image !== 'default.jpg') {
             // delete old image
             Storage::disk('public_uploads')->delete('user-images/' . $user->image);
        }
