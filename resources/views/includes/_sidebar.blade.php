@@ -38,6 +38,13 @@
                     <p>{{ __('site.users')  }}</p>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a href="{{ route('dashboard.categories.index') }}" class="nav-link">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>{{ __('site.categories')  }}</p>
+                </a>
+            </li>
         </ul>
         </nav>
         <!-- /.sidebar-menu -->

@@ -1,9 +1,7 @@
 @extends('layouts/dashboard/app')
 
 @section('content')
-
     @include('includes._success-alert')
-
     <!-- /.row -->
     <div class="row">
         <div class="col-12">
@@ -12,7 +10,7 @@
                     <h3 class="card-title">{{ __('site.users') }}</h3>
 
                     {{-- search --}}
-                    <form action="{{ route('dashboard.users.index') }}" method="GET" class="d-inline-block">
+                    <form action="{{ route('dashboard.categories.index') }}" method="GET" class="d-inline-block">
 
                         @csrf
 
@@ -31,7 +29,7 @@
 
 
                     <a class="btn btn-secondary btn-sm mr-2 @cannot('create') disabled @endcannot"
-                        href="{{ route('dashboard.users.create') }}"><i class="fa fa-plus-circle"></i>
+                        href="{{ route('dashboard.categories.create') }}"><i class="fa fa-plus-circle"></i>
                         {{ __('site.add') }}</a>
 
                 </div>
@@ -41,28 +39,22 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>{{ __('site.first_name') }}</th>
-                                <th>{{ __('site.last_name') }}</th>
-                                <th>{{ __('site.email') }}</th>
-                                <th>{{ __('site.image') }}</th>
+                                <th>{{ __('site.name') }}</th>
                                 <th>{{ __('site.action') }}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $index => $user)
+                            @foreach ($categories as $index => $category)
                                 <tr>
                                     <td>{{ $index++ }}</td>
-                                    <td>{{ $user->first_name }}</td>
-                                    <td>{{ $user->last_name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td><img src="{{ asset('uploads/user-images/' . $user->image) }}" alt="user"
-                                            class="img-thumbnail" style="width: 50px;"></td>
+
+                                    <td>{{ $category->name }}</td>
                                     <td>
                                         <a class="btn btn-info btn-sm  @cannot('update') disabled @endcannot"
-                                            href="{{ route('dashboard.users.edit', $user->id) }}"><i
+                                            href="{{ route('dashboard.categories.edit', $category->id) }}"><i
                                                 class="fa fa-edit"></i> {{ __('site.edit') }}</a>
 
-                                        <form action="{{ route('dashboard.users.destroy', $user->id) }}" method="POST"
+                                        <form action="{{ route('dashboard.categories.destroy', $category->id) }}" method="POST"
                                             class="d-inline-block deleteUser delete">
                                             @csrf
                                             @method('DELETE')
@@ -83,7 +75,7 @@
 
                 <div class="card-footer">
                     <div>
-                        {{ $users->appends(['search' => request()->query('search')])->links() }}
+                        {{ $categories->appends(['search' => request()->query('search')])->links() }}
                     </div>
                 </div>
 
@@ -102,7 +94,7 @@
     <script>
         $(document).ready(function() {
             $(".delete").on("submit", function(e) {
-                return confirm("Do you want to delete this user?");
+                return confirm("Do you want to delete this category?");
             });
 
             $(".alert-success").fadeTo(2000, 500).slideUp(500, function() {

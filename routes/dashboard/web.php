@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Dashboard\DashboardController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 Route::group(
     [
@@ -15,6 +15,8 @@ Route::group(
             Route::get('/', [DashboardController::class, 'home'])->name('home');
 
             Route::resource('users', UserController::class);
+
+            Route::resource('categories', CategoryController::class);
 
         });
 

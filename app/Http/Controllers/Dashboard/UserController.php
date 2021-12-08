@@ -37,7 +37,7 @@ class UserController extends Controller
             ->orderBy('id', 'desc')
             ->paginate(10);
 
-        return view('dashboard.users.index', [ 'users' => $users, 'search' => $request->query('search')]);
+        return view('dashboard.users.index', [ 'users' => $users ]);
     }
 
     /**
@@ -80,7 +80,7 @@ class UserController extends Controller
             // Compress and store image
             $hashImageName = $request->image->hashName();
 
-            Image::make($request->image)->resize(300, null, function ($constraint){
+            Image::make($request->image)->fit(320 , 320, function ($constraint){
                 $constraint->aspectRatio();
             })->save(public_path('uploads/user-images/') . $request->image->hashName());
 
@@ -166,7 +166,7 @@ class UserController extends Controller
             // store new image
             $hashImageName = $request->image->hashName();
 
-            Image::make($request->image)->resize(300, null, function ($constraint){
+            Image::make($request->image)->fit(320 , 320, function ($constraint){
                 $constraint->aspectRatio();
             })->save(public_path('uploads/user-images/') . $request->image->hashName());
 
