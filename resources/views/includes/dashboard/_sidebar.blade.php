@@ -47,8 +47,15 @@
             </li>
 
             <li class="nav-item">
-                <a href="{{ route('dashboard.users.index') }}" class="nav-link">
+                <a href="{{ route('dashboard.clients.index') }}" class="nav-link">
                     <i class="nav-icon fas fa-users"></i>
+                    <p>{{ __('site.clients')  }}</p>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ route('dashboard.users.index') }}" class="nav-link">
+                    <i class="nav-icon fas fa-users-cog"></i>
                     <p>{{ __('site.users')  }}</p>
                 </a>
             </li>

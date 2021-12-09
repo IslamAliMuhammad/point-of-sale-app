@@ -68,4 +68,12 @@ return [
     'add_product' => 'اضافة منتج',
     'edit_product' => 'تعديل منتج',
 
+
+    'clients' => 'العملاء',
+    'phone' => 'رقم التليفون',
+    'address' => 'العنوان',
+    'add_client' => 'اضافة عميل',
+    'edit_client' => 'تعديل بيانات عميل',
+
+
 ];
