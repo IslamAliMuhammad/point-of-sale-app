@@ -7,17 +7,26 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">{{ __('site.users') }}</h3>
+                    <h3 class="card-title">{{ __('site.products') }}</h3>
 
                     {{-- search --}}
-                    <form action="{{ route('dashboard.categories.index') }}" method="GET" class="d-inline-block">
+                    <form action="{{ route('dashboard.products.index') }}" method="GET" class="d-inline-block">
 
                         @csrf
 
-                        <div class="card-tools">
-                            <div class="input-group input-group-sm" style="width: 250px;">
+                        <div class="card-tools d-flex" style="width: 700px">
+                            <div class="input-group input-group-md">
                                 <input type="text" name="search" class="form-control float-right"
-                                    placeholder="{{ __('site.search') }}">
+                                    placeholder="{{ __('site.products') }}">
+                            </div>
+
+                            <div class="input-group input-group-md mr-2">
+                                <select class="custom-select" id="categories" name="category_id">
+                                    <option value="0">{{ __('site.all_categories') }}</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
 
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
@@ -29,44 +38,50 @@
                     {{-- end search --}}
 
 
-                    <a class="btn btn-secondary btn-sm mr-2" href="{{ route('dashboard.categories.create') }}"><i
+                    <a class="btn btn-secondary btn-sm mr-2" href="{{ route('dashboard.products.create') }}"><i
                             class="fa fa-plus-circle"></i>
                         {{ __('site.add') }}</a>
 
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
-                    @if ($categories->count() > 0)
+                    @if ($products->count() > 0)
 
                         <table class="table table-hover">
                             <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>{{ __('site.name') }}</th>
-                                    <th>{{ __('site.products_count') }}</th>
-                                    <th>{{ __('site.related_products') }}</th>
+                                    <th>{{ __('site.description') }}</th>
+                                    <th>{{ __('site.image') }}</th>
+                                    <th>{{ __('site.purchase_price') }}</th>
+                                    <th>{{ __('site.sale_price') }}</th>
+                                    <th>{{ __('site.profit_percent') }}</th>
+                                    <th>{{ __('site.stock') }}</th>
                                     <th>{{ __('site.action') }}</th>
                                 </tr>
                             </thead>
 
                             <tbody>
 
-                                @foreach ($categories as $index => $category)
+                                @foreach ($products as $index => $product)
                                     <tr>
                                         <td>{{ $index++ }}</td>
 
-                                        <td>{{ $category->name }}</td>
-
-                                        <td>{{ $category->products()->count() }}</td>
-
-                                        <td><a href="{{ route('dashboard.products.index', ['category_id' => $category->id]) }}" class="btn btn-success">{{ __('site.related_products') }}</a></td>
+                                        <td>{{ $product->name }}</td>
+                                        <td>{!! $product->description !!}</td>
+                                        <td><img class="img-thumbnail" src="{{ asset('uploads/product-images/' . $product->image) }}" alt="product iamge" style="width: 75px"></td>
+                                        <td>{{ $product->purchase_price }}</td>
+                                        <td>{{ $product->sale_price }}</td>
+                                        <td>{{ $product->profit_percent }}</td>
+                                        <td>{{ $product->stock }}</td>
 
                                         <td>
                                             <a class="btn btn-info btn-sm "
-                                                href="{{ route('dashboard.categories.edit', $category->id) }}"><i
+                                                href="{{ route('dashboard.products.edit', $product->id) }}"><i
                                                     class="fa fa-edit"></i> {{ __('site.edit') }}</a>
 
-                                            <form action="{{ route('dashboard.categories.destroy', $category->id) }}"
+                                            <form action="{{ route('dashboard.products.destroy', $product->id) }}"
                                                 method="POST" class="d-inline-block deleteUser delete">
                                                 @csrf
                                                 @method('DELETE')
@@ -91,7 +106,7 @@
 
                 <div class="card-footer">
                     <div>
-                        {{ $categories->appends(['search' => request()->query('search')])->links() }}
+                        {{ $products->appends(['search' => request()->query('search'), 'category_id' => request()->query('category_id')])->links() }}
                     </div>
                 </div>
 

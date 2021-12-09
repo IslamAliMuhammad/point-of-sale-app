@@ -1,7 +1,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{ route('dashboard.home') }}" class="brand-link">
         <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
             style="opacity: .8">
         <span class="brand-text font-weight-light">{{ __('site.point_of_sale') }}</span>
@@ -33,16 +33,23 @@
             </li>
 
             <li class="nav-item">
-                <a href="{{ route('dashboard.users.index') }}" class="nav-link">
-                    <i class="nav-icon fas fa-users"></i>
-                    <p>{{ __('site.users')  }}</p>
+                <a href="{{ route('dashboard.categories.index') }}" class="nav-link">
+                    <i class="nav-icon fas fa-list"></i>
+                    <p>{{ __('site.categories')  }}</p>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a href="{{ route('dashboard.categories.index') }}" class="nav-link">
+                <a href="{{ route('dashboard.products.index') }}" class="nav-link">
+                    <i class="nav-icon fab fa-product-hunt"></i>
+                    <p>{{ __('site.products')  }}</p>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ route('dashboard.users.index') }}" class="nav-link">
                     <i class="nav-icon fas fa-users"></i>
-                    <p>{{ __('site.categories')  }}</p>
+                    <p>{{ __('site.users')  }}</p>
                 </a>
             </li>
         </ul>

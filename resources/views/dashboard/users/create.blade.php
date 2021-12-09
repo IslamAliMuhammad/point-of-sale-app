@@ -16,21 +16,24 @@
             <div class="card-body">
                 <div class="form-group">
                     <label for="inputFirstName">{{ __('site.first_name') }}</label>
-                    <input type="text" class="form-control" id="inputFirstName" name="first_name" value="{{ old('first_name') }}" required>
+                    <input type="text" class="form-control" id="inputFirstName" name="first_name"
+                        value="{{ old('first_name') }}" required>
                     @error('first_name')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="inputLastName">{{ __('site.last_name') }}</label>
-                    <input type="text" class="form-control" id="inputLastName" name="last_name" value="{{ old('last_name') }}" required>
+                    <input type="text" class="form-control" id="inputLastName" name="last_name"
+                        value="{{ old('last_name') }}" required>
                     @error('last_name')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="inputEmail">{{ __('site.email') }}</label>
-                    <input type="email" class="form-control" id="inputEmail" name="email" value="{{ old('email') }}" required>
+                    <input type="email" class="form-control" id="inputEmail" name="email" value="{{ old('email') }}"
+                        required>
                     @error('email')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -44,7 +47,8 @@
                 </div>
                 <div class="form-group">
                     <label for="inputPasswordConfirmation">{{ __('site.password_confirmation') }}</label>
-                    <input type="password" class="form-control" id="inputPasswordConfirmation" name="password_confirmation" required>
+                    <input type="password" class="form-control" id="inputPasswordConfirmation"
+                        name="password_confirmation" required>
                     @error('password_confirmation')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -52,8 +56,9 @@
 
                 {{-- image uploader --}}
                 <div class="form-group">
-                    <label for="inputPhoto">{{ __('site.image') }}</label>
+                    <label for="inputImage">{{ __('site.image') }}</label>
                     <input type="file" class="form-control-file" id="inputImage" name="image">
+                    <img id="imagePreview" src="{{ asset('uploads/user-images/default.jpg') }}" alt="your image" class="img-thumbnail mt-2" style="width: 100px"/>
                     @error('image')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -105,3 +110,13 @@
     <!-- /.card -->
 @endsection
 
+@section('script')
+    <script>
+        inputImage.onchange = evt => {
+            const [file] = inputImage.files
+            if (file) {
+                imagePreview.src = URL.createObjectURL(file)
+            }
+        }
+    </script>
+@endsection

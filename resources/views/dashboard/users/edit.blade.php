@@ -38,12 +38,14 @@
 
                 {{-- image uploader --}}
                 <div class="form-group">
-                    <label for="inputPhoto">{{ __('site.image') }}</label>
+                    <label for="inputImage">{{ __('site.image') }}</label>
                     <input type="file" class="form-control-file" id="inputImage" name="image">
+                    <img id="imagePreview" src="{{ asset('uploads/user-images/' . $user->image) }}" alt="your image" class="img-thumbnail mt-2" style="width: 100px"/>
                     @error('image')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
+
                 {{-- permissions --}}
                 <div class="permissions mt-4">
                     <h3 class="mb-3 h5">{{ __('site.permissions') }}</h3>
@@ -89,6 +91,14 @@
     <!-- /.card -->
 @endsection
 
-{{-- @php
-    dd($permissions);
-@endphp --}}
+
+@section('script')
+    <script>
+        inputImage.onchange = evt => {
+            const [file] = inputImage.files
+            if (file) {
+                imagePreview.src = URL.createObjectURL(file)
+            }
+        }
+    </script>
+@endsection
