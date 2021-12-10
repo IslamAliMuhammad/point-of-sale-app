@@ -1,5 +1,25 @@
 @extends('layouts/dashboard/app')
 
+@section('content-header')
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0 text-dark">{{ __('site.clients') }}</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="{{ route('dashboard.home') }}">{{ __('site.home') }}</a></li>
+            <li class="breadcrumb-item active">{{ __('site.clients') }}</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+@endsection
+
 @section('content')
     @include('includes.dashboard._success-alert')
     <!-- /.row -->
@@ -7,8 +27,6 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">{{ __('site.clients') }}</h3>
-
                     {{-- search --}}
                     <form action="{{ route('dashboard.clients.index') }}" method="GET" class="d-inline-block">
 
@@ -30,7 +48,7 @@
 
 
                     <a class="btn btn-secondary btn-sm mr-2" href="{{ route('dashboard.clients.create') }}"><i
-                            class="fa fa-plus-circle"></i>
+                            class="fa fa-plus"></i>
                         {{ __('site.add') }}</a>
 
                 </div>
@@ -57,7 +75,7 @@
 
                                         <td>{{ $client->name }}</td>
 
-                                        <td>{{ $client->phone[0] . ' - ' . $client->phone[1] }}</td>
+                                        <td>@if($client->phone[1] === null) {{ $client->phone[0] }} @else {{ implode(' - ', $client->phone) }} @endif</td>
 
                                         <td>{{ $client->address }}</td>
 

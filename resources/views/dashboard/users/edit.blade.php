@@ -1,5 +1,25 @@
 @extends('layouts/dashboard/app')
 
+@section('content-header')
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="{{ route('dashboard.home') }}">{{ __('site.home') }}</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('dashboard.users.index') }}">{{ __('site.users') }}</a></li>
+            <li class="breadcrumb-item active">{{ __('site.edit_user') }}</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+@endsection
+
 @section('content')
     <!-- general form elements -->
     <div class="card card-primary">
@@ -38,7 +58,7 @@
 
                 {{-- image uploader --}}
                 <div class="form-group">
-                    <label for="inputImage">{{ __('site.image') }}</label>
+                    <label for="inputImage" class="notRequired">{{ __('site.image') }}</label>
                     <input type="file" class="form-control-file" id="inputImage" name="image">
                     <img id="imagePreview" src="{{ asset('uploads/user-images/' . $user->image) }}" alt="your image" class="img-thumbnail mt-2" style="width: 100px"/>
                     @error('image')
@@ -48,7 +68,7 @@
 
                 {{-- permissions --}}
                 <div class="permissions mt-4">
-                    <h3 class="mb-3 h5">{{ __('site.permissions') }}</h3>
+                    <h3 class="mb-3 h5 required">{{ __('site.permissions') }}</h3>
                     <div class="form-group d-flex flex-row">
                         <div class="custom-control custom-checkbox">
                             <input class="custom-control-input" type="checkbox" id="createCheckbox" value="create"
@@ -101,4 +121,18 @@
             }
         }
     </script>
+@endsection
+
+@section('style')
+<style>
+    label:not(.notRequired, .custom-control-label):after {
+      content:" *";
+      color: red;
+    }
+
+    .required:after {
+        content:" *";
+        color: red;
+    }
+  </style>
 @endsection

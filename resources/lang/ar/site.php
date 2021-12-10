@@ -24,7 +24,7 @@ return [
 
     'permissions' => 'الصلاحيات',
 
-    'add_user' => 'اضافة مشرف',
+    'create_user' => 'اضافة مشرف',
     'edit_user' => 'تعديل مشرف',
 
     'point_of_sale' => 'نقطة البيع',
@@ -36,7 +36,7 @@ return [
     'search' => 'بحث',
 
     'name' => 'الاسم',
-    'add_category' => 'اضافة قسم',
+    'create_category' => 'اضافة قسم',
 
     'ar' => [
         'name' => 'الاسم باللغة العربية',
@@ -48,7 +48,7 @@ return [
         'description' => 'الوصف باللغة الانجليزية',
     ],
 
-    'update_category' => 'تعديل قسم',
+    'edit_category' => 'تعديل قسم',
     'all_categories' => 'جميع الاقسام',
     'products_count' => 'عدد المنتجات',
     'related_products' => 'المنتجات المرتبطة',
@@ -65,15 +65,16 @@ return [
     'sale_price' => 'سعر البيع',
     'profit_percent' => 'المكسب%',
     'stock' => 'المخزون',
-    'add_product' => 'اضافة منتج',
+    'create_product' => 'اضافة منتج',
     'edit_product' => 'تعديل منتج',
 
 
     'clients' => 'العملاء',
     'phone' => 'رقم التليفون',
     'address' => 'العنوان',
-    'add_client' => 'اضافة عميل',
+    'create_client' => 'اضافة عميل',
     'edit_client' => 'تعديل بيانات عميل',
 
-
+    'phone1' => 'التليفون 1',
+    'phone2' => 'التليفون 2',
 ];

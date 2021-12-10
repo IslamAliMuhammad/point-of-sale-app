@@ -27,6 +27,24 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+        {{-- Select language --}}
+        <li>
+            <div class="dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-flag"></i>
+                </a>
+
+                <div class="dropdown-menu">
+                    @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                        <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
+                            href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                            {{ $properties['native'] }}
+                        </a>
+                    @endforeach
+                </div>
+            </div>
+        </li>
+
         <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
@@ -115,25 +133,6 @@
         <li class="nav-item">
             <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
                     class="fas fa-th-large"></i></a>
-        </li>
-
-        {{-- Select language --}}
-        <li>
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown" aria-expanded="false">
-                    {{ __('site.' . LaravelLocalization::getCurrentLocaleName()) }}
-                </button>
-
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                        <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
-                            href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                            {{ $properties['native'] }}
-                        </a>
-                    @endforeach
-                </div>
-            </div>
         </li>
 
     </ul>

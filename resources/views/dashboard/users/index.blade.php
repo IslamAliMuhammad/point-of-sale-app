@@ -1,5 +1,26 @@
 @extends('layouts/dashboard/app')
 
+@section('content-header')
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0 text-dark">{{ __('site.users') }}</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="{{ route('dashboard.home') }}">{{ __('site.home') }}</a></li>
+            <li class="breadcrumb-item active">{{ __('site.users') }}</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+@endsection
+
+
 @section('content')
 
     @include('includes.dashboard._success-alert')
@@ -9,7 +30,6 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">{{ __('site.users') }}</h3>
 
                     {{-- search --}}
                     <form action="{{ route('dashboard.users.index') }}" method="GET" class="d-inline-block">
@@ -32,7 +52,7 @@
 
 
                     <a class="btn btn-secondary btn-sm mr-2 @cannot('create users') disabled @endcannot"
-                        href="{{ route('dashboard.users.create') }}"><i class="fa fa-plus-circle"></i>
+                        href="{{ route('dashboard.users.create') }}"><i class="fa fa-plus"></i>
                         {{ __('site.add') }}</a>
 
                 </div>

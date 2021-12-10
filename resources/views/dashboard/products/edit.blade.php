@@ -1,5 +1,26 @@
 @extends('layouts/dashboard/app')
 
+@section('content-header')
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="{{ route('dashboard.home') }}">{{ __('site.home') }}</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('dashboard.products.index') }}">{{ __('site.products') }}</a></li>
+            <li class="breadcrumb-item active">{{ __('site.edit_product') }}</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+@endsection
+
+
 @section('content')
     <!-- general form elements -->
     <div class="card card-primary">
@@ -50,7 +71,7 @@
 
                 {{-- image uploader --}}
                 <div class="form-group">
-                    <label for="inputImage">{{ __('site.image') }}</label>
+                    <label for="inputImage" class="notRequired">{{ __('site.image') }}</label>
                     <input type="file" class="form-control-file" id="inputImage" name="image">
                     <img id="imagePreview" src="{{ asset('uploads/product-images/' . $product->image) }}" alt="product image" class="img-thumbnail mt-2" style="width: 100px"/>
                     @error('image')
@@ -115,5 +136,14 @@
             }
         }
     </script>
+
 @endsection
 
+@section('style')
+<style>
+    label:not(.notRequired):after {
+      content:" *";
+      color: red;
+    }
+  </style>
+@endsection

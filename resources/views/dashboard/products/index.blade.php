@@ -1,5 +1,25 @@
 @extends('layouts/dashboard/app')
 
+@section('content-header')
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0 text-dark">{{ __('site.products') }}</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="{{ route('dashboard.home') }}">{{ __('site.home') }}</a></li>
+            <li class="breadcrumb-item active">{{ __('site.products') }}</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+@endsection
+
 @section('content')
     @include('includes.dashboard._success-alert')
     <!-- /.row -->
@@ -7,17 +27,16 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">{{ __('site.products') }}</h3>
 
                     {{-- search --}}
                     <form action="{{ route('dashboard.products.index') }}" method="GET" class="d-inline-block">
 
                         @csrf
 
-                        <div class="card-tools d-flex" style="width: 700px">
+                        <div class="card-tools d-flex" style="width: 500px">
                             <div class="input-group input-group-md">
                                 <input type="text" name="search" class="form-control float-right"
-                                    placeholder="{{ __('site.products') }}">
+                                    placeholder="{{ __('site.search') }}">
                             </div>
 
                             <div class="input-group input-group-md mr-2">
@@ -39,7 +58,7 @@
 
 
                     <a class="btn btn-secondary btn-sm mr-2" href="{{ route('dashboard.products.create') }}"><i
-                            class="fa fa-plus-circle"></i>
+                            class="fa fa-plus"></i>
                         {{ __('site.add') }}</a>
 
                 </div>

@@ -16,8 +16,7 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
 
-          @include('includes.dashboard._content-header')
-
+            @yield('content-header')
           <!-- Main content -->
           <section class="content">
             <div class="`container-fluid">
