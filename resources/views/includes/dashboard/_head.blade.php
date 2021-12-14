@@ -31,3 +31,4 @@
     <!-- Custom style for RTL -->
     <link rel="stylesheet" href="{{ asset('dist/css/custom.css') }}">
 @endif
+

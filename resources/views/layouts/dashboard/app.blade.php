@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     @include('includes.dashboard._head')
 
     @yield('style')
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -35,5 +37,8 @@
     @include('includes.dashboard._scripts')
 
     @yield('script')
+
+    @stack('script')
+
 </body>
 </html>

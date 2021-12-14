@@ -4,7 +4,7 @@
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
-      <div class="row mb-2">
+      <div class="mb-2 row">
         <div class="col-sm-6">
         </div><!-- /.col -->
         <div class="col-sm-6">
@@ -24,7 +24,7 @@
     <!-- general form elements -->
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title float-left h5">{{ __('site.create_product') }}</h3>
+            <h3 class="float-left card-title h5">{{ __('site.create_product') }}</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
@@ -75,7 +75,7 @@
                     <label for="inputImage" class="notRequired">{{ __('site.image') }}</label>
                     <input type="file" class="form-control-file" id="inputImage" name="image">
                     <img id="imagePreview" src="{{ asset('uploads/product-images/default.png') }}" alt="product image"
-                        class="img-thumbnail mt-2" style="width: 100px" />
+                        class="mt-2 img-thumbnail" style="width: 100px" />
                     @error('image')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -92,7 +92,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="salePriceInput">{{ __('site.purchase_price') }}</label>
+                    <label for="salePriceInput">{{ __('site.sale_price') }}</label>
                     <input type="number" step="0.01" min="0" class="form-control" id="salePriceInput" name="sale_price"
                         value="{{ old('sale_price') }}">
                     @error('sale_price')

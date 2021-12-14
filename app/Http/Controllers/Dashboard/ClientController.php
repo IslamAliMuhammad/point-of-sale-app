@@ -22,7 +22,7 @@ class ClientController extends Controller
                 ->orWhere('address', 'LIKE', '%' . $request->search . '%');
         })
             ->latest()
-            ->paginate(1);
+            ->paginate(10);
 
 
         return view('dashboard.clients.index', compact('clients'));

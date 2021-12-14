@@ -63,6 +63,7 @@
                                     <th>{{ __('site.name') }}</th>
                                     <th>{{ __('site.phone') }}</th>
                                     <th>{{ __('site.address') }}</th>
+                                    <th>{{ __('site.add_order') }}</th>
                                     <th>{{ __('site.action') }}</th>
                                 </tr>
                             </thead>
@@ -78,6 +79,8 @@
                                         <td>@if($client->phone[1] === null) {{ $client->phone[0] }} @else {{ implode(' - ', $client->phone) }} @endif</td>
 
                                         <td>{{ $client->address }}</td>
+
+                                        <td><a href="{{ route('dashboard.clients.orders.create', $client->id) }}" class="btn btn-success btn-sm">{{ __('site.add_order') }}</a></td>
 
                                         <td>
                                             <a class="btn btn-info btn-sm "

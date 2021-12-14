@@ -4,7 +4,7 @@
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
-      <div class="row mb-2">
+      <div class="mb-2 row">
         <div class="col-sm-6">
           <h1 class="m-0 text-dark">{{ __('site.products') }}</h1>
         </div><!-- /.col -->
@@ -35,11 +35,11 @@
 
                         <div class="card-tools d-flex" style="width: 500px">
                             <div class="input-group input-group-md">
-                                <input type="text" name="search" class="form-control float-right"
+                                <input type="text" name="search" class="float-right form-control"
                                     placeholder="{{ __('site.search') }}">
                             </div>
 
-                            <div class="input-group input-group-md mr-2">
+                            <div class="mr-2 input-group input-group-md">
                                 <select class="custom-select" id="categories" name="category_id">
                                     <option value="0">{{ __('site.all_categories') }}</option>
                                     @foreach ($categories as $category)
@@ -57,13 +57,13 @@
                     {{-- end search --}}
 
 
-                    <a class="btn btn-secondary btn-sm mr-2" href="{{ route('dashboard.products.create') }}"><i
+                    <a class="mr-2 btn btn-secondary btn-sm" href="{{ route('dashboard.products.create') }}"><i
                             class="fa fa-plus"></i>
                         {{ __('site.add') }}</a>
 
                 </div>
                 <!-- /.card-header -->
-                <div class="card-body table-responsive p-0">
+                <div class="p-0 card-body table-responsive">
                     @if ($products->count() > 0)
 
                         <table class="table table-hover">
@@ -92,24 +92,28 @@
                                         <td><img class="img-thumbnail" src="{{ asset('uploads/product-images/' . $product->image) }}" alt="product iamge" style="width: 75px"></td>
                                         <td>{{ $product->purchase_price }}</td>
                                         <td>{{ $product->sale_price }}</td>
-                                        <td>{{ $product->profit_percent }}</td>
+                                        <td>{{ $product->profit_percent }} %</td>
                                         <td>{{ $product->stock }}</td>
 
-                                        <td>
-                                            <a class="btn btn-info btn-sm "
+                                        <td class="flex-row d-flex">
+                                            <div>
+                                                <a class="btn btn-info btn-sm "
                                                 href="{{ route('dashboard.products.edit', $product->id) }}"><i
                                                     class="fa fa-edit"></i> {{ __('site.edit') }}</a>
+                                            </div>
 
-                                            <form action="{{ route('dashboard.products.destroy', $product->id) }}"
-                                                method="POST" class="d-inline-block deleteUser delete">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-danger btn-sm" type="submit"><i
-                                                        class="fa fa-trash" data-toggle="modal"
-                                                        data-target="#exampleModal"></i>
-                                                    {{ __('site.delete') }}</button>
+                                            <div class="ml-1">
+                                                <form action="{{ route('dashboard.products.destroy', $product->id) }}"
+                                                    method="POST" class="d-inline-block deleteUser delete">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-danger btn-sm" type="submit"><i
+                                                            class="fa fa-trash" data-toggle="modal"
+                                                            data-target="#exampleModal"></i>
+                                                        {{ __('site.delete') }}</button>
 
-                                            </form>
+                                                </form>
+                                            </div>
 
                                         </td>
                                     </tr>

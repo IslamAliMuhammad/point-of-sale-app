@@ -7,6 +7,7 @@ use Database\Seeders\RoleSeeder;
 use Database\Seeders\UserSeeder;
 use Database\Seeders\RolePermission;
 use Database\Seeders\PermissionSeeder;
+use Database\Seeders\TestSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,6 +24,7 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             RolePermission::class,
             UserSeeder::class,
+            TestSeeder::class,
         ]);
     }
 }

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Order;
 
 class Product extends Model
 {
@@ -29,5 +30,9 @@ class Product extends Model
 
     public function category() {
         return $this->belongsTo(Category::class);
+    }
+
+    public function orders() {
+        return $this->belongsToMany(Order::class)->withPivot(['quantity']);
     }
 }

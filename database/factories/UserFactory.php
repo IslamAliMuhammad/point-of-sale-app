@@ -17,10 +17,10 @@ class UserFactory extends Factory
     {
         return [
             'first_name' => $this->faker->firstName(),
-            'last_name' => $this->faker->lastName                                  (),
+            'last_name' => $this->faker->lastName(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'image' => 'default.png',
+            'image' => 'default.jpg',
             'password' => Hash::make('011'), // password
             'remember_token' => Str::random(10),
         ];

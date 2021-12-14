@@ -34,3 +34,4 @@
 <script src="{{ asset('dist/js/adminlte.js') }}"></script>
 {{-- CKEditor --}}
 <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
+

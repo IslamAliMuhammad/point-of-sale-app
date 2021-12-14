@@ -12,7 +12,7 @@ return [
 
     'edit' => 'تعديل',
     'delete' => 'حذف',
-    'add' => 'اضف',
+    'add' => 'أضف',
 
     'password' => 'كلمة المرور',
     'password_confirmation' => 'تأكيد كلمة المرور',
@@ -63,7 +63,7 @@ return [
     'description' => 'الوصف',
     'purchase_price' => 'سعر الشراء',
     'sale_price' => 'سعر البيع',
-    'profit_percent' => 'المكسب%',
+    'profit_percent' => 'المكسب %',
     'stock' => 'المخزون',
     'create_product' => 'اضافة منتج',
     'edit_product' => 'تعديل منتج',
@@ -77,4 +77,20 @@ return [
 
     'phone1' => 'التليفون 1',
     'phone2' => 'التليفون 2',
+
+    'add_order' => 'أضف طلب',
+    'price' => 'السعر',
+    'quantity' => 'الكميه',
+    'product' => 'المنتج',
+    'order' => 'الطلب',
+
+    'total' => 'المجموع',
+    'order_placed' => 'الطلب تم بنجاح',
+    'orders' => 'الطلبات',
+    'display' => 'عرض',
+    'client_name' => 'اسم العميل',
+    'created_at' => 'تم اضافته',
+    'display_products' => 'عرض المنتجات',
+    'print' => 'طبع',
+
 ];
