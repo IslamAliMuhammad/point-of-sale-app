@@ -11,7 +11,7 @@ $('.add-product-btn').on('click', function (e) {
         <tr>
             <td>${name}</td>
             <td ><input class="product-price product-quantity" data-price="${price}" name="products[${id}][quantity]" type="number" min="1" value="1" max="${stock}" style="width: 75px" data-id="${price}"></td>
-            <td>${price}</td>
+            <td>${new Intl.NumberFormat('en-IN').format(price)}</td>
             <td><button type="button" class="btn btn-danger btn-sm remove-product-btn" data-id="${id}"><i class="fa fa-trash"></i></button></td>
         </tr>
     `;

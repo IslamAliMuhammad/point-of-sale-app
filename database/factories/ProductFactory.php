@@ -18,8 +18,8 @@ class ProductFactory extends Factory
             //
 
             'category_id' => Category::factory(),
-            'purchase_price' => $this->faker->randomFloat(2, 2000, 20000),
-            'sale_price' => $this->faker->randomFloat(2, 2000, 20000),
+            'purchase_price' => $this->faker->numberBetween(1000, 10000),
+            'sale_price' => $this->faker->numberBetween(1000, 10000),
             'stock' => $this->faker->numberBetween(1, 20),
             'en' => [
                 'name' => $this->faker->text(30),

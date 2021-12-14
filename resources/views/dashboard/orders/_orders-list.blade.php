@@ -43,7 +43,7 @@
                         <tr>
                             <td>{{ $order->client->name }}</td>
 
-                            <td>{{ $order->total_price }}</td>
+                            <td>{{ number_format($order->total_price) }}</td>
 
                             <td>{{ $order->created_at }}</td>
 

@@ -1,66 +1,57 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Point Of Sale
+Point of sale app for helping stores on-premise to manage their products, orders, and their clients.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Built With
+* [PHP](https://www.php.net/) & [Laravel](https://laravel.com/)
+* [MySQL](https://www.mysql.com/)
+* [jQuery](https://jquery.com/) 
+* [Bootstrap](https://getbootstrap.com/)
 
-## About Laravel
+## Key features:
+* Support multi-languages (LTR - RTL)
+* Roles and permissions functionality.
+* Manage store categories (create, update, delete).
+* Manage store products (create, update, delete).
+* Manage store clients (create, update, delete).
+* Manage store clients orders (create, update, delete).
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Getting Started 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Prerequisites 
+* XAMPP development environment [download](https://www.apachefriends.org/index.html) (*Optional*)
+* Composer Dependency Manager [download](https://getcomposer.org/download/)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
+### Installation 
+1. Clone the repo 
+   ```sh
+   git clone https://github.com/IslamAliMuhammad/point-of-sale-app.git
+   ```
+2. Install the dependencies
+   ```sh
+   composer install
+   ```
+3. Create database in your localhost.
+4. Create .env file on root folder then Copy KEY=VALUE pairs from .env.example to .env. 
+5. Set the application key
+   ```sh
+   php artisan key:generate
+   ```
+6. Create virtual host then enter `http://{virtual-host-name}` into your browser.
+   
 ## License
+[MIT](https://choosealicense.com/licenses/mit/)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## App Screenshots
+
+![1](/pos-screenshots/1.PNG)
+![2](/pos-screenshots/2.PNG)
+![3](/pos-screenshots/3.PNG)
+![4](/pos-screenshots/4.PNG)
+![5](/pos-screenshots/5.PNG)
+![6](/pos-screenshots/6.PNG)
+![7](/pos-screenshots/7.PNG)
+![8](/pos-screenshots/8.PNG)
+![9](/pos-screenshots/9.PNG)
+![10](/pos-screenshots/1en.PNG)
+![11](/pos-screenshots/2en.PNG)

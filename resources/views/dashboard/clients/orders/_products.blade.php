@@ -25,7 +25,7 @@
                         <tr id="{{ $product->id }}">
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->stock }}</td>
-                            <td>{{ $product->sale_price }}</td>
+                            <td>{{ number_format($product->sale_price) }}</td>
                             <td><button id="product-{{ $product->id }}" class="btn btn-success btn-sm add-product-btn" data-id="{{ $product->id }}" data-name="{{ $product->name }}" data-price="{{ $product->sale_price }}" data-stock="{{ $product->stock }}"> <i class="fa fa-plus"></i></button> </td>
                         </tr>
                     @endforeach

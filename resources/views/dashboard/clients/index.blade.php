@@ -4,7 +4,7 @@
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
-      <div class="row mb-2">
+      <div class="mb-2 row">
         <div class="col-sm-6">
           <h1 class="m-0 text-dark">{{ __('site.clients') }}</h1>
         </div><!-- /.col -->
@@ -34,7 +34,7 @@
 
                         <div class="card-tools">
                             <div class="input-group input-group-sm" style="width: 250px;">
-                                <input type="text" name="search" class="form-control float-right"
+                                <input type="text" name="search" class="float-right form-control"
                                     placeholder="{{ __('site.search') }}">
 
                                 <div class="input-group-append">
@@ -47,13 +47,13 @@
                     {{-- end search --}}
 
 
-                    <a class="btn btn-secondary btn-sm mr-2" href="{{ route('dashboard.clients.create') }}"><i
+                    <a class="mr-2 btn btn-secondary btn-sm" href="{{ route('dashboard.clients.create') }}"><i
                             class="fa fa-plus"></i>
                         {{ __('site.add') }}</a>
 
                 </div>
                 <!-- /.card-header -->
-                <div class="card-body table-responsive p-0">
+                <div class="p-0 card-body table-responsive">
                     @if ($clients->count() > 0)
 
                         <table class="table table-hover">
@@ -82,21 +82,25 @@
 
                                         <td><a href="{{ route('dashboard.clients.orders.create', $client->id) }}" class="btn btn-success btn-sm">{{ __('site.add_order') }}</a></td>
 
-                                        <td>
-                                            <a class="btn btn-info btn-sm "
+                                        <td class="flex-row d-flex">
+                                            <div>
+                                                <a class="btn btn-info btn-sm "
                                                 href="{{ route('dashboard.clients.edit', $client->id) }}"><i
                                                     class="fa fa-edit"></i> {{ __('site.edit') }}</a>
+                                            </div>
 
-                                            <form action="{{ route('dashboard.clients.destroy', $client->id) }}"
-                                                method="POST" class="d-inline-block deleteUser delete">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-danger btn-sm" type="submit"><i
-                                                        class="fa fa-trash" data-toggle="modal"
-                                                        data-target="#exampleModal"></i>
-                                                    {{ __('site.delete') }}</button>
+                                            <div class="ml-1">
+                                                <form action="{{ route('dashboard.clients.destroy', $client->id) }}"
+                                                    method="POST" class="d-inline-block deleteUser delete">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-danger btn-sm" type="submit"><i
+                                                            class="fa fa-trash" data-toggle="modal"
+                                                            data-target="#exampleModal"></i>
+                                                        {{ __('site.delete') }}</button>
 
-                                            </form>
+                                                </form>
+                                            </div>
 
                                         </td>
                                     </tr>
