@@ -93,4 +93,6 @@ return [
     'display_products' => 'عرض المنتجات',
     'print' => 'طبع',
 
+    'sales_graph' => 'مخطط المبيعات',
+
 ];

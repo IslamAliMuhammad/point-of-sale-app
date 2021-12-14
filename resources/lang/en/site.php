@@ -93,5 +93,7 @@ return [
     'display_products' => 'Display Products',
     'print' => 'Print',
 
+    'sales_graph' => 'Sales Graph',
+
 ];
 

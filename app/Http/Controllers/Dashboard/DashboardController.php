@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\Dashboard;
-use App\Http\Controllers\Controller;
-use App\Models\Category;
-use App\Models\Product;
-use App\Models\Client;
 use App\Models\User;
+use App\Models\Order;
+use App\Models\Client;
+use App\Models\Product;
+use App\Models\Category;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
@@ -18,6 +20,16 @@ class DashboardController extends Controller
         $clients = Client::count();
         $users = User::count();
 
-        return view('dashboard/home', compact('categories', 'products', 'clients', 'users'));
+        $salesData = Order::select(
+            DB::raw('YEAR(created_at) AS year'),
+            DB::raw('MONTH(created_at) As month'),
+            DB::raw('SUM(total_price) as total_price'),
+        )
+            ->groupBy('month')
+            ->get();
+            $month = $salesData->pluck('month')->all();
+            $totalPrice = $salesData->pluck('total_price')->all();
+
+        return view('dashboard/home', compact('categories', 'products', 'clients', 'users', 'month', 'totalPrice'));
     }
 }
