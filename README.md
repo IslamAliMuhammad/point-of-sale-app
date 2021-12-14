@@ -10,6 +10,7 @@ Point of sale app for helping stores on-premise to manage their products, orders
 ## Key features:
 * Support multi-languages (LTR - RTL)
 * Roles and permissions functionality.
+* Sales graph analysis.
 * Manage store categories (create, update, delete).
 * Manage store products (create, update, delete).
 * Manage store clients (create, update, delete).
